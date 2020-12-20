@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#tableBoard {
+    width: 787px;
+    height: 500px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.boardBox {
+    width: 70px;
+    height: 70px;
+    border: 0.2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#field {
+    width: 800px;
+    height: 510px;
+    margin-left: 25%;
+}
+
+.img {
+    width: 70px;
+    height: 70px;
+}
+
+#finishGameOver {
+    margin-left: 30%;
+    width: 600px;
+    height: 0px;
+}
+#finishWinner {
+    margin-left: 25%;
+    width: 700px;
+    height: 0px;
+}
+

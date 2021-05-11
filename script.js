@@ -30,23 +30,7 @@ const boardBoxPx = document.getElementsByClassName("boardBox");
 const tableBoard = document.getElementById("tableBoard");
 const MATRIX = [];
 let mancoord;
-let timer;
-const selectedValue = document.getElementById("list");
 
-selectedValue.addEventListener("change", (event) => {
-    MATRIX_SIZE = +event.target.value;
-    if (MATRIX_SIZE === 5) {
-        tableBoard.style.width = "415px";
-        tableBoard.style.height = '360px';
-        field.style.marginLeft = "38%"
-    }
-    if (MATRIX_SIZE === 7) {
-        console.log(MATRIX_SIZE)
-        tableBoard.style.width = "565px";
-        tableBoard.style.height = "500px";
-        field.style.marginLeft = "32%";
-    }
-})
 const createMatric = () => {
     for (let i = X; i < MATRIX_SIZE; i++) {
         MATRIX[i] = new Array(MATRIX_SIZE).fill(EMPTY);
@@ -149,30 +133,9 @@ const gameIsFinished = (deleteBoard, element, message) => {
     deleteBoard.style.display = "none";
     element.style.height = "500px";
     element.style.transition = "1s";
-    gameTimer.style.opacity = "-1"
 }
-
-const setGameTimer = () => {
-    timer = setInterval(() => {
-        gameTimer.innerHTML--;
-        if (gameTimer.innerHTML === "0") {
-            gameTimer.style.opacity = "-1";
-            mp3.pause();
-            mp3.currentTime = 0;
-            gameIsFinished(field, finishGameOver, "Game Over...")
-            return
-        };
-    }, 1000);
-}
-
 
 const callFunctionAddEvent = () => {
-    if (timer) {
-        clearInterval(timer)
-    }
-    gameTimer.style.opacity = "1"
-    gameTimer.innerHTML = "530";
-    setGameTimer()
     mp3.play()
     createMatric();
     mancoord = getRandomPair(MATRIX_SIZE, MATRIX_SIZE);
